@@ -16,6 +16,6 @@ jobs:
         node-version: '18'
     - name: Installs
       run: |
-        npm install
+        npm ci -l verbose
     - name: Run Jest
-      uses: stefanoeb/jest-action@1.0.4
+      run: npm run test
