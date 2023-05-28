@@ -16,6 +16,6 @@ jobs:
         node-version: '18'
     - name: Installs
       run: |
-        npm install
-    - name: Run TESTS
+        npm ci -l verbose
+    - name: Run Jest
       run: npm run test
