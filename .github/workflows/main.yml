@@ -15,7 +15,8 @@ jobs:
       with:
         node-version: '18'
     - name: Installs
-      run: |
+      run: |        
         npm ci -l verbose
+        npm i node-chromium
     - name: Run Jest
       run: npm run test
