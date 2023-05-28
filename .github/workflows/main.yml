@@ -17,6 +17,7 @@ jobs:
     - name: Installs
       run: |        
         npm ci -l verbose
-        npm i node-chromium
+        npm i chromium
+        npm i jest-puppeteer
     - name: Run Jest
       run: npm run test
