@@ -17,7 +17,5 @@ jobs:
     - name: Installs
       run: |
         npm install
-        npm i puppeteer@18.1.0
-        npm i chromium
-    - name: Run TESTS
-      run: npm run test
+    - name: Run Jest
+      uses: stefanoeb/jest-action@1.0.4
