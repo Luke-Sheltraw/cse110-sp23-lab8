@@ -17,5 +17,9 @@ jobs:
     - name: Installs
       run: |
         npm install
+        npm i puppeteer@18.1.0
+        npm i chromium
+        cd /node_modules/puppeteer
+        npm install
     - name: Run TESTS
       run: npm run test
