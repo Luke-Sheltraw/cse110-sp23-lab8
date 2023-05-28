@@ -7,17 +7,11 @@ permissions: write-all
 jobs:
   test:
     runs-on: ubuntu-latest
+    container: alekzonder/puppeteer:latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    - name: Set up Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
-    - name: Installs
-      run: |        
-        npm ci -l verbose
-        npm i chromium
-        npm i jest-puppeteer
-    - name: Run Jest
-      run: npm run test
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: npm install
+      - name: Run tests
+        run: npm test
