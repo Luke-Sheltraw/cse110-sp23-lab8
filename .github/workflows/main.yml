@@ -12,7 +12,7 @@ jobs:
       
       - name: Install Puppeteer dependencies
         run: |
-          sudo apt-get update && sudo apt-get install -y \
+          apt-get update && apt-get install -y \
             gconf-service \
             libasound2 \
             libatk1.0-0 \
