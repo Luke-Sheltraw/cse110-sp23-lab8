@@ -1,6 +1,8 @@
 # Lab 8
 Name: Luke Sheltraw (no partner)
 
+## Questions
+
 1. Where would you fit your automated tests in your Recipe project development pipeline? Select one of the following and explain why.
 
 	- Within a Github action that runs whenever code is pushed 
@@ -20,3 +22,7 @@ Name: Luke Sheltraw (no partner)
 4. Would you use a unit test to test the “max message length” feature of a messaging application? Why or why not? For this question, assume the “max message length” feature prevents the user from typing more than 80 characters.
 
 	**Answer**: Yes; this feature is small (i.e. a single unit) and likely implemented in a single function attached to an event listener (e.g. user input). If we were to test this function in isolation (as unit testing does), we could be reasonably certain that the feature works as intended. Furthermore, the intended behavior is very easily understood through function calls. That is, we could perform unit testing by testing a range of message lengths, and ensuring the function clamps all the messages to at most 80 characters.
+	
+## Test Results
+
+![test results](testresults.png)
