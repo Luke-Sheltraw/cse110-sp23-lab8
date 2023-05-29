@@ -1,61 +1,20 @@
 name: Puppeteer Tests
 run-name: Started Testing after Action from @${{ github.actor }}
 on: [push]
-
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      - name: Install Puppeteer dependencies
-        run: |
-          apt-get update && apt-get install -y \
-            gconf-service \
-            libasound2 \
-            libatk1.0-0 \
-            libc6 \
-            libcairo2 \
-            libcups2 \
-            libdbus-1-3 \
-            libexpat1 \
-            libfontconfig1 \
-            libgcc1 \
-            libgconf-2-4 \
-            libgdk-pixbuf2.0-0 \
-            libglib2.0-0 \
-            libgtk-3-0 \
-            libnspr4 \
-            libpango-1.0-0 \
-            libpangocairo-1.0-0 \
-            libstdc++6 \
-            libx11-6 \
-            libx11-xcb1 \
-            libxcb1 \
-            libxcomposite1 \
-            libxcursor1 \
-            libxdamage1 \
-            libxext6 \
-            libxfixes3 \
-            libxi6 \
-            libxrandr2 \
-            libxrender1 \
-            libxss1 \
-            libxtst6 \
-            ca-certificates \
-            fonts-liberation \
-            libappindicator1 \
-            libnss3 \
-            lsb-release \
-            xdg-utils \
-            wget
-
+      - uses: actions/checkout@v3
       - name: Install Dependencies
-        run: npm install
-      
-      - name: Run tests
-        run: npm test
+        uses: actions/setup-node@v2
+        env:
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true"
+        with:
+          args: install
+      - name: Test Code
+        uses: mujo-code/puppeteer-headful@16.6.0
+        env:
+          CI: "true"
+        with:
+          args: npm test
